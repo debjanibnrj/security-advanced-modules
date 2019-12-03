@@ -132,7 +132,7 @@ public class InternalUsersApiAction extends PatchableResourceApiAction {
         // when updating an existing user password hash can be blank, which means no
         // changes
 
-        // sanity checks, hash is mandatory for newly created users
+        // sanity checks, hash or password is mandatory for newly created users
         if (!userExisted && securityJsonNode.get("hash").asString() == null) {
             badRequestResponse(channel, "Please specify either 'hash' or 'password' when creating a new internal user.");
             return;
